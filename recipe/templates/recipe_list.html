@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Recipes</h1>
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col-md-4">
+            <div class="card">
+{#                <img src="{{ chapo.url }}" class="card-img-top" alt="Recipe Image">#}
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe.title }}</h5>
+                    <p class="card-text">{{ recipe.category }}</p>
+                    <a href="{% url 'detail' recipe.pk %}" class="btn btn-primary">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p>No recipes yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

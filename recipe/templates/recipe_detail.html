@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ recipe.title }}</h1>
+{#    <img src="{{ recipe.image.url }}" class="img-fluid" alt="Recipe Image">#}
+    <p><strong>Category:</strong> {{ recipe.category }}</p>
+    <p><strong>Ingredients:</strong></p>
+    <p>{{ recipe.ingredients }}</p>
+    <p><strong>Instructions:</strong></p>
+    <p>{{ recipe.instructions }}</p>
+    {% if user == recipe.author %}
+        <a href="{% url 'update' recipe.pk %}" class="btn btn-warning">Edit</a>
+        <a href="{% url 'delete' recipe.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+{% endblock %}

@@ -5,8 +5,13 @@ from django.contrib.auth import login, logout
 from . forms import RecipeForm, Recipe, registerForm
 
 
+def search_recipes(request):
+    query = request.GET.get('q', '')  # Get search input
+    recipes = Recipe.objects.filter(title__icontains=query) if query else []
 
-# Home - List all recipes
+    return render(request, 'search_results.html', {'recipes': recipes, 'query': query})
+
+    # Home - List all recipes
 def recipe_list(request):
     recipes = Recipe.objects.all()
     return render(request, 'recipe_list.html', {'recipes': recipes})
@@ -24,8 +29,8 @@ def register_user(request):
         form=registerForm()
     return render(request, 'register.html',context={'form':form})
 # View Recipe Details
-def recipe_detail(request, pk):
-    recipe = get_object_or_404(Recipe, pk=pk)
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, id=recipe_id)
     return render(request, 'recipe_detail.html', {'recipe': recipe})
 
 def login_user(request):
@@ -82,4 +87,5 @@ def recipe_delete(request, pk):
     if request.user == recipe.author:
         recipe.delete()
     return redirect('list')
+
 

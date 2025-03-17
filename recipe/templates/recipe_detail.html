@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <h1>{{ recipe.title }}</h1>
-{#    <img src="{{ recipe.image.url }}" class="img-fluid" alt="Recipe Image">#}
-    <p><strong>Category:</strong> {{ recipe.category }}</p>
-    <p><strong>Ingredients:</strong></p>
-    <p>{{ recipe.ingredients }}</p>
-    <p><strong>Instructions:</strong></p>
-    <p>{{ recipe.instructions }}</p>
+    {% if recipe.image %}
+       <img src="{{ recipe.image.url }}" class="img-fluid" alt="{{ recipe.title }}">
+    {% else %}
+       <p>No image available</p>
+    {% endif %}
+{#    <p><strong>Category:</strong> {{ recipe.category }}</p>#}
+    <p><strong>Ingredients:</strong></p><pre style="font-size: medium"><p>{{ recipe.ingredients|linebreaks }}</p></pre>
+    <p><strong>Instructions:</strong></p><pre style="font-size: medium;font-family: Calibri"><p>{{ recipe.instructions|linebreaks }}</p></pre>
     {% if user == recipe.author %}
         <a href="{% url 'update' recipe.pk %}" class="btn btn-warning">Edit</a>
         <a href="{% url 'delete' recipe.pk %}" class="btn btn-danger">Delete</a>
+        <button onclick="window.history.back()" class="btn btn-secondary">Go Back</button>
     {% endif %}
 {% endblock %}

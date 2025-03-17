@@ -12,7 +12,7 @@ class registerForm(UserCreationForm):
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ['title','ingredients','instructions','category']
+        fields = ['title','ingredients','instructions']
         widgets = {
             'description': forms.Textarea(attrs={'rows':'3',"placeholder":" enter your description"}),
         }

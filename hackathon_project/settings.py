@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import dj_database_url  # <-- add this
+  # <-- add this
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,13 +9,12 @@ SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-di7f6s$m!rrxh=k^q2l^pnjxu6av+mg^e@12i78i-ayq130oc5"
 )
-DEBUG = os.environ.get("DJANGO_DEBUG", "False") == "True"
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    ".herokuapp.com",  # <-- allow Heroku apps
-]
+   'mutisia_ibrahim.pythonanywhere.com',
+    'localhost',
+    '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -72,11 +71,14 @@ DATABASES = {
 }
 
 # Use Heroku Postgres if DATABASE_URL is set
+import dj_database_url
+
 DATABASES['default'] = dj_database_url.config(
-    default=DATABASES['default'],
+    default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
     conn_max_age=600,
     ssl_require=False
 )
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

@@ -1,0 +1,142 @@
+:root {
+    /* ---------- Light mode colors ---------- */
+    --bg-color: linear-gradient(135deg, #fffae6, #ffe6cc); /* soft warm recipe background */
+    --text-color: #333; /* readable dark text */
+    --navbar-bg: #ff7f50; /* appetizing coral navbar */
+    --navbar-text: #fff;
+    --card-bg: #fff; /* recipe cards */
+    --card-text: #333;
+    --btn-bg: #ff704d; /* buttons */
+    --btn-text: #fff;
+    --search-bg: #fff;
+    --search-text: #333;
+    --container-bg: transparent;
+}
+/* ---------- body ---------- */
+body.dark-mode {
+    /* ---------- Dark mode colors ---------- */
+    --bg-color: #1e1e1e;
+    --text-color: #f0f0f0;
+    --navbar-bg: #2c2c2c;
+    --navbar-text: #f0f0f0;
+    --card-bg: #333;
+    --card-text: #f0f0f0;
+    --btn-bg: #ff704d; /* keep buttons slightly vibrant */
+    --btn-text: #fff;
+    --search-bg: #444;
+    --search-text: #fff;
+    --container-bg: #222;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background 0.5s, color 0.5s;
+}
+/* Make the container cover the whole viewport */
+.animated-background {
+    position: fixed; /* stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* push it behind all content */
+    overflow: hidden; /* hide any overflow from the image */
+}
+
+/* Make the image scale to cover the container */
+.animated-background .floating-food {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fills container without distortion */
+    display: block;
+}
+
+
+.container {
+    background: var(--container-bg);
+    transition: background 0.5s;
+}
+/* ---------- Navbar ---------- */
+.navbar {
+    background: var(--navbar-bg) !important;
+    transition: background 0.5s, color 0.5s;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: var(--navbar-text) !important;
+}
+
+.navbar .nav-link:hover {
+    opacity: 0.8; /* subtle hover effect */
+}
+/* ---------- Cards ---------- */
+.card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: background 0.5s, color 0.5s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    color: var(--card-text);
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--card-text);
+}
+
+.card .btn {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.card .btn:hover {
+    opacity: 0.9;
+}
+/* ---------- Recipe details ---------- */
+h1, h2, h3, h4, h5, h6, p, pre {
+    color: var(--text-color);
+}
+
+pre {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+/* ---------- Cards ---------- */
+input, textarea, .search-box {
+    background: var(--search-bg);
+    color: var(--search-text);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: background 0.5s, color 0.5s;
+}
+
+button, .search-btn {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+button:hover, .search-btn:hover {
+    opacity: 0.9;
+}
+

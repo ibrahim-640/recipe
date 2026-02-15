@@ -1,1 +1,61 @@
-an awesome recipe website group project
+# 🍲 Recipe Sharing Website (Django)
+
+A Django web application where users can submit recipes and view recipes shared by others.
+All recipes must be approved by an admin before becoming public.
+
+---
+
+## 🚀 Features
+
+* User registration & login
+* Submit recipes
+* Admin approval system
+* View approved recipes
+* Responsive Bootstrap UI
+
+---
+
+## 🛠 Tech Stack
+
+* Python
+* Django
+* HTML
+* CSS
+* Bootstrap
+* JavaScript
+* SQLite
+
+---
+
+## ⚙️ Run Locally
+
+```bash
+git clone https:https://github.com/ibrahim-640/recipe.git
+cd YOUR-REPO
+python -m venv env
+env\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+---
+
+## 👤 Roles
+
+**User**
+
+* Add recipes
+* View recipes
+
+**Admin**
+
+* Approve recipes
+* Manage site
+
+---
+
+## 👨‍💻 Author
+
+Ibrahim Mutisia
+
